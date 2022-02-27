@@ -18,6 +18,8 @@ errors = { path = "../errors" }
 utils = { path = "../utils" }
 config = { path = "../config" }
 
+exoquant = "0.2.0"
+
 [dev-dependencies]
 # TODO: prune
 serde_json = "1"

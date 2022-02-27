@@ -327,10 +327,18 @@ impl ImageOp {
 
         match self.format {
             Format::Png => {
+                // img.write_to(&mut f, ImageOutputFormat::Png)?;
+                let mut img_gray = image::imageops::colorops::grayscale(&img);
+                image::imageops::colorops::dither(&mut img_gray, &image::imageops::colorops::BiLevel);
+                let img = image::DynamicImage::ImageLuma8(img_gray);
                 img.write_to(&mut f, ImageOutputFormat::Png)?;
             }
             Format::Jpeg(q) => {
-                img.write_to(&mut f, ImageOutputFormat::Jpeg(q))?;
+                // img.write_to(&mut f, ImageOutputFormat::Jpeg(q))?;
+                let mut img_gray = image::imageops::colorops::grayscale(&img);
+                image::imageops::colorops::dither(&mut img_gray, &image::imageops::colorops::BiLevel);
+                let img = image::DynamicImage::ImageLuma8(img_gray);
+                img.write_to(&mut f, ImageOutputFormat::Png)?;
             }
             Format::WebP(q) => {
                 let encoder = webp::Encoder::from_image(&img);

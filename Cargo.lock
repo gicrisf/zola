@@ -595,6 +595,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "exoquant"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5048aeecde83b7455a63b44aa54da5321d6171cff2adb8a5959849e142e5e4aa"
+
+[[package]]
 name = "fake-simd"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1075,6 +1081,7 @@ version = "0.1.0"
 dependencies = [
  "config",
  "errors",
+ "exoquant",
  "image",
  "lazy_static",
  "rayon",
